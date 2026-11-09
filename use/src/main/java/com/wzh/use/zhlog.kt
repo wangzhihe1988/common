@@ -5,6 +5,9 @@ import android.util.Log
 import java.io.File
 import java.io.FileWriter
 import java.io.PrintWriter
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 object zhlog {
     private const val MAX_FILE_SIZE_BYTES = 512*1024
@@ -34,9 +37,15 @@ object zhlog {
     fun logSave(name: String = "log", line: String){
         zh.log(line,name)
         val f = init(name)?: return
+        val wallTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS:  ", Locale.US).format(Date())
+        var logLine = buildString {
+            append(wallTime)
+            append(line)
+            append("\n\n")
+        }
         synchronized(lock){
             try {
-                PrintWriter(FileWriter(f,true)).use { it.println(line) }
+                PrintWriter(FileWriter(f,true)).use { it.println(logLine) }
             }catch (_: Throwable){}
         }
     }
