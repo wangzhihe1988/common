@@ -34,7 +34,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.wangzhihe1988"   // 必须严格按此格式
                 artifactId = "runtime"                 // 通常与模块名一致
-                version = "1.0.3"                        // 与后续 GitHub Release 的 Tag 对应
+                version = "1.0.4"                        // 与后续 GitHub Release 的 Tag 对应
             }
         }
     }

@@ -23,13 +23,16 @@ import com.wzh.common.ui.theme.CommonTheme
 import com.wzh.runtime.RunTimeLogWriter
 import com.wzh.runtime.WZHRunTime
 import com.wzh.use.zh
+import com.wzh.use.zhlog.save
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        zh.init(this,true)
         RunTimeLogWriter.init(this)
         fakeWork()
+        "ssff".save()
         setContent {
             CommonTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -44,7 +47,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    zh.isDebug = true
+
+    "tett".save()
     zh.log("fsf")
     Text(
         text = "Hello $name!",
