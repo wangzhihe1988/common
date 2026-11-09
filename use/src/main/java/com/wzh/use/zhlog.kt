@@ -58,5 +58,5 @@ object zhlog {
 
     fun currentPath(name: String = "log.txt"): String = init(name)?.absolutePath ?:""
 
-    fun String.logSave(name: String = "log.txt") = logSave(line = this, name = name)
+    fun String.save(name: String = "log.txt") = logSave(line = this, name = name)
 }

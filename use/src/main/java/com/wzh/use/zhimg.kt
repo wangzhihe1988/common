@@ -128,5 +128,5 @@ object zhimg{
         saveBitmapToGallery(context,this)
     }
 
-    fun Bitmap.binarize(threshold: Int = 220): Bitmap = binarize(this,threshold)
+
 }
